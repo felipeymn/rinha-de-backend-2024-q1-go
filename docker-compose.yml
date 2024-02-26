@@ -17,12 +17,13 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.2"
+          cpus: "0.25"
           memory: "20MB"
   api02:
     # Essa sintaxe reusa o que foi declarado em 'api01'.
     <<: *api 
     hostname: api02
+
   nginx:
     image: nginx:latest
     volumes:
