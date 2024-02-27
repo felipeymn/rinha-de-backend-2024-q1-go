@@ -22,6 +22,10 @@ func (s *Server) SaveTransaction(w http.ResponseWriter, r *http.Request, ps http
 
 	accountRow, err := s.storage.SaveTransaction(id, transaction)
 	if err != nil {
+		if err.Error() == ErrNoRows.Error() {
+			http.Error(w, "", http.StatusNotFound)
+			return
+		}
 		http.Error(w, "", http.StatusUnprocessableEntity)
 		return
 	}
