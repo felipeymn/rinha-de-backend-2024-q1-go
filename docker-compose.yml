@@ -8,7 +8,7 @@ services:
     image: felipeymn/rinha-de-backend-2024-q1:latest
     hostname: api01
     environment:
-    - RINHA_DB_CONN_STRING=postgres://florence:machine@db/florence?sslmode=disable
+    - RINHA_DB_CONN_STRING=postgres://florence:machine@db/florence
     - MAX_CONNS=20
     - MIN_CONNS=20
     
